@@ -4,16 +4,16 @@ import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
 import { useDispatch, useSelector } from '../../services/store';
 import { useParams } from 'react-router-dom';
-import { getOrderByNumber } from '../../services/feed/action';
 import { getIngredients } from '../../services/ingredient/slice';
-import { getOrdersState } from '../../services/feed/slice';
+import { getOrderByNumber } from '../../services/order/action';
+import { getOrdersState } from '../../services/order/slice';
 
 export const OrderInfo: FC = () => {
   const dispatch = useDispatch();
   const orderNumber = Number(useParams().number);
-    /** TODO: взять переменные orderData и ingredients из стора */
-    const orderData = useSelector(getOrdersState);
-    const ingredients: TIngredient[] = useSelector(getIngredients);
+  /** TODO: взять переменные orderData и ingredients из стора */
+  const orderData = useSelector(getOrdersState);
+  const ingredients: TIngredient[] = useSelector(getIngredients);
 
   useEffect(() => {
     dispatch(getOrderByNumber(orderNumber));

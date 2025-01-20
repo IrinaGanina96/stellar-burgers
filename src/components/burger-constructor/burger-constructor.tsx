@@ -2,7 +2,12 @@ import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '../../services/store';
-import { getConstructorItems, getOrderModalData, getOrderRequest, resetOrderModalData } from '../../services/constructor/slice';
+import {
+  getConstructorItems,
+  getOrderModalData,
+  getOrderRequest,
+  resetOrderModalData
+} from '../../services/constructor/slice';
 import { useNavigate } from 'react-router-dom';
 import { getIsAuthChecked } from '../../services/user/slice';
 import { getOrderBurger } from '../../services/constructor/action';
@@ -18,18 +23,20 @@ export const BurgerConstructor: FC = () => {
 
   const onOrderClick = () => {
     if (!isAuth) {
-      return navigate('/login')
+      return navigate('/login');
     }
-    
+
     if (!constructorItems.bun || orderRequest) return;
 
     const bunId = constructorItems.bun._id;
-    const ingredientsId = constructorItems.ingredients.map((ingredient) => ingredient._id);
+    const ingredientsId = constructorItems.ingredients.map(
+      (ingredient) => ingredient._id
+    );
     const order = [bunId, ...ingredientsId, bunId];
-      
-    dispatch(getOrderBurger(order))
+
+    dispatch(getOrderBurger(order));
   };
-  
+
   const closeOrderModal = () => {
     dispatch(resetOrderModalData());
   };

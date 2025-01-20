@@ -1,9 +1,7 @@
-import { orderBurgerApi } from "@api";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { orderBurgerApi } from '@api';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getOrderBurger = createAsyncThunk (
-    "order/getOrderBurger",
-    async (data: string[]) => {
-        return orderBurgerApi(data)
-    }
+export const getOrderBurger = createAsyncThunk(
+  'order/getOrderBurger',
+  async (data: string[]) => orderBurgerApi(data)
 );

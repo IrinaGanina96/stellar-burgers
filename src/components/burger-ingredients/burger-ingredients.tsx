@@ -12,9 +12,11 @@ export const BurgerIngredients: FC = () => {
   const ingredients: TIngredient[] = useSelector(getIngredients);
   const isLoading = useSelector(getLoading);
 
-  const buns = ingredients.filter((ingredient) => ingredient.type === 'bun');;
+  const buns = ingredients.filter((ingredient) => ingredient.type === 'bun');
   const mains = ingredients.filter((ingredient) => ingredient.type === 'main');
-  const sauces = ingredients.filter((ingredient) => ingredient.type === 'sauce');;
+  const sauces = ingredients.filter(
+    (ingredient) => ingredient.type === 'sauce'
+  );
 
   const [currentTab, setCurrentTab] = useState<TTabMode>('bun');
   const titleBunRef = useRef<HTMLHeadingElement>(null);

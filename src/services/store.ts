@@ -17,7 +17,6 @@ export const rootReducer = combineReducers({
   feed: feedSlice.reducer,
   order: orderSlice.reducer,
   constructorBurger: constructorSlice.reducer
-  
 }); // Заменить на импорт настоящего редьюсера
 
 const store = configureStore({

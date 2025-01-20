@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from '../../services/store';
 import { getIsAuthChecked } from '../../services/user/slice';
 import { TLoginData } from '@api';
 import { login } from '../../services/user/action';
-import { Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export const Login: FC = () => {
   const [email, setEmail] = useState('');
